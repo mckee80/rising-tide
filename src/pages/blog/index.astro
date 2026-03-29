@@ -5,11 +5,13 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-  title="Blog | Pelvic Floor Health Articles"
-  description="Articles about pelvic floor health, postpartum recovery, incontinence, pelvic pain, and more. Evidence-based information from a pelvic health specialist."
+  title="Blog | Timber Framing Articles & Insights"
+  description="Articles about timber frame construction, wood species, joinery techniques, design inspiration, and the craft of building heirloom timber structures."
   breadcrumbs={[{ name: 'Blog', url: '/blog/' }]}
 >
   <!-- Hero -->
@@ -17,9 +19,9 @@ const posts = (await getCollection('blog')).sort(
     <div class="container-max">
       <div class="max-w-3xl">
         <span class="section-label">Blog</span>
-        <h1 class="text-4xl md:text-5xl mb-4">Pelvic Health Articles</h1>
+        <h1 class="text-4xl md:text-5xl mb-4">Timber Framing Insights</h1>
         <p class="text-lg text-brand-dark-light">
-          Evidence-based information about pelvic floor health, recovery, and wellness.
+          Articles about timber frame construction, craftsmanship, wood species, design inspiration, and the art of building structures that last for generations.
         </p>
       </div>
     </div>
@@ -35,7 +37,7 @@ const posts = (await getCollection('blog')).sort(
       ) : (
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+            <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-surface-alt">
               {post.data.image && (
                 <img
                   src={post.data.image}
@@ -53,7 +55,7 @@ const posts = (await getCollection('blog')).sort(
                   ))}
                 </div>
                 <h2 class="text-xl font-heading mb-2">
-                  <a href={`/blog/${post.slug}/`} class="text-brand-dark hover:text-brand-primary transition-colors">
+                  <a href={`${base}blog/${post.slug}/`} class="text-brand-dark hover:text-brand-primary transition-colors">
                     {post.data.title}
                   </a>
                 </h2>
@@ -64,7 +66,7 @@ const posts = (await getCollection('blog')).sort(
                   <time datetime={post.data.pubDate.toISOString()}>
                     {new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </time>
-                  <a href={`/blog/${post.slug}/`} class="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors">
+                  <a href={`${base}blog/${post.slug}/`} class="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors">
                     Read more →
                   </a>
                 </div>
