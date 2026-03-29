@@ -7,8 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://risingtidetimberframes.com',
-  base: '/',
+  site: 'https://mckee80.github.io',
+  base: '/rising-tide/',
   output: 'static',
   compressHTML: true,
   integrations: [mdx(), sitemap()],
