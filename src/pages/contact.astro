@@ -1,0 +1,208 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Contact Rising Tide Timber Frames to discuss your timber frame project. Based in West Reading, PA — serving Pennsylvania and the Mid-Atlantic region.`}
+  breadcrumbs={[{ name: 'Contact', url: '/contact/' }]}
+>
+  <!-- Hero -->
+  <section class="pt-36 pb-16 bg-gradient-to-br from-brand-primary/10 to-transparent">
+    <div class="container-max">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label">Contact</span>
+        <h1 class="mb-4">Let's Talk About Your Project</h1>
+        <p class="section-description">
+          Whether you have detailed architectural plans or just a rough idea, we'd love to hear about your timber frame vision. Every great structure starts with a conversation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
+
+        <!-- Form -->
+        <div class="bg-white p-8 lg:p-10 rounded-xl shadow-sm">
+          <h2 class="text-2xl mb-6">Send a Message</h2>
+
+          <form
+            id="contact-form"
+            name="contact"
+            netlify
+            netlify-honeypot="bot-field"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div class="space-y-5">
+              <div>
+                <label for="name" class="block text-sm font-medium text-brand-dark mb-1">Your name <span class="text-brand-accent" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-brand-dark placeholder:text-brand-dark-light/60 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition"
+                  placeholder="John Smith" />
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium text-brand-dark mb-1">Email <span class="text-brand-accent" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-brand-dark placeholder:text-brand-dark-light/60 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition"
+                  placeholder="john@email.com" />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-sm font-medium text-brand-dark mb-1">
+                  Phone
+                  <span class="text-brand-dark-light font-normal ml-1">(optional)</span>
+                </label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-brand-dark placeholder:text-brand-dark-light/60 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition"
+                  placeholder="(484) 555-1234" />
+              </div>
+
+              <div>
+                <label for="project-type" class="block text-sm font-medium text-brand-dark mb-1">
+                  Project type
+                  <span class="text-brand-dark-light font-normal ml-1">(optional)</span>
+                </label>
+                <select id="project-type" name="project-type"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition">
+                  <option value="">Select a project type...</option>
+                  <option value="Timber Frame Home">Timber Frame Home</option>
+                  <option value="Roof Trusses">Roof Trusses</option>
+                  <option value="Barn">Barn</option>
+                  <option value="Pavilion / Outdoor Structure">Pavilion / Outdoor Structure</option>
+                  <option value="Pool House">Pool House</option>
+                  <option value="Entry Way / Accent">Entry Way / Accent</option>
+                  <option value="Restoration / Repair">Restoration / Repair</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-medium text-brand-dark mb-1">Tell us about your project <span class="text-brand-accent" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required rows="5"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 text-brand-dark placeholder:text-brand-dark-light/60 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition resize-none"
+                  placeholder="Describe your vision — location, size, style, timeline, budget range, or any other details that would help us understand your project..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-full justify-center">
+                Send Message
+              </button>
+
+              <p id="form-error" class="hidden text-sm text-red-600 text-center" role="alert">
+                Something went wrong. Please email us directly at <a href={`mailto:${siteConfig.contact.email}`} class="underline">{siteConfig.contact.email}</a>.
+              </p>
+            </div>
+          </form>
+
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="w-14 h-14 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl mb-2">Message received!</h3>
+            <p class="text-brand-dark-light">We'll be in touch within one business day to discuss your project.</p>
+          </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-2">Call Us</h3>
+            <a href={`tel:${siteConfig.contact.phone.primary}`} class="text-brand-primary text-lg hover:text-brand-primary-dark transition-colors font-medium">
+              {siteConfig.contact.phone.formatted}
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-surface-alt">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-2">Email</h3>
+            <a href={`mailto:${siteConfig.contact.email}`} class="text-brand-primary text-lg hover:text-brand-primary-dark transition-colors font-medium">
+              {siteConfig.contact.email}
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-surface-alt">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-2">Location</h3>
+            <address class="text-brand-dark-light not-italic">
+              {siteConfig.contact.address.full}
+            </address>
+          </div>
+
+          <div class="pt-6 border-t border-surface-alt">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-2">Shop Hours</h3>
+            <div class="text-brand-dark-light">
+              <p>{siteConfig.contact.hours.shop.days}: {siteConfig.contact.hours.shop.time}</p>
+              <p class="mt-1">Consultations: {siteConfig.contact.hours.consultations.days}, {siteConfig.contact.hours.consultations.time}</p>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-surface-alt">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-2">Visit Our Workshop</h3>
+            <p class="text-brand-dark-light mb-4">
+              We welcome visitors to our workshop by appointment. See our craftsmen at work, view timber samples, and discuss your project in person.
+            </p>
+            <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-primary">
+              Schedule a Visit
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-surface-alt">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-dark-light mb-4">What to Expect</h3>
+            <ul class="space-y-3 text-brand-dark-light">
+              {['Response within one business day', 'Free initial project consultation', 'Honest assessment & realistic timelines', 'No pressure, no commitment'].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form) as any).toString(),
+        });
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          successMsg?.classList.remove('hidden');
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch {
+        errorMsg?.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  </script>
+</BaseLayout>

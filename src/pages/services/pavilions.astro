@@ -1,0 +1,99 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+
+const structures = [
+  {
+    title: 'Open-Air Pavilions',
+    description: 'Freestanding timber frame pavilions that provide shade and shelter while maintaining an open, airy feel. Perfect for outdoor dining, entertaining, or relaxation.',
+  },
+  {
+    title: 'Pergolas',
+    description: 'Elegant timber frame pergolas that define outdoor spaces and provide partial shade. Ideal for garden paths, patio covers, and transitional spaces.',
+  },
+  {
+    title: 'Outdoor Kitchens & Living',
+    description: 'Covered outdoor living areas with timber frame roofs that extend your home into nature. Cook, dine, and entertain under the beauty of exposed timbers.',
+  },
+  {
+    title: 'Pool Houses',
+    description: 'Elegant timber frame pool houses that provide shade, storage, changing areas, and a stunning gathering space to complement your outdoor oasis.',
+  },
+];
+---
+
+<BaseLayout
+  title="Timber Frame Pavilions & Outdoor Living"
+  description="Open-air timber frame pavilions, pergolas, pool houses, and outdoor living structures. Rising Tide Timber Frames extends your home into nature with hand-crafted timber structures."
+  breadcrumbs={[{ name: 'Services', url: '/services/' }, { name: 'Pavilions & Outdoor Living', url: '/services/pavilions/' }]}
+>
+  <!-- Hero -->
+  <section class="pt-36 pb-16 bg-gradient-to-br from-brand-primary/10 to-transparent">
+    <div class="container-max">
+      <div class="max-w-3xl">
+        <span class="section-label">Outdoor Structures</span>
+        <h1 class="text-4xl md:text-5xl mb-6">Pavilions & Outdoor Living</h1>
+        <p class="text-lg text-brand-dark-light mb-8">
+          Open-air timber frame pavilions, pergolas, and outdoor living spaces that extend your home into nature. Perfect for entertaining, dining, or simply relaxing under the beauty of hand-crafted timbers.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact/" class="btn btn-primary btn-lg">Start Your Outdoor Project</a>
+          <a href="/portfolio/" class="btn btn-outline btn-lg">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structure Types -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">What We Build</span>
+        <h2 class="section-title">Outdoor Timber Frame Structures</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {structures.map((item) => (
+          <div class="service-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-padding bg-surface-alt">
+    <div class="container-max">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label">Benefits</span>
+        <h2 class="section-title">Why a Timber Frame Outdoor Structure?</h2>
+        <p class="text-brand-dark-light mb-6">
+          A timber frame pavilion or outdoor structure adds instant character, functionality, and value to your property. Unlike mass-produced kits, our hand-crafted structures are built with the same quality joinery and premium materials as our full timber frame homes.
+        </p>
+        <p class="text-brand-dark-light mb-6">
+          Outdoor structures are often an ideal first timber frame project — they're a wonderful way to experience the beauty and craftsmanship of timber framing on a smaller scale, and they transform how you use and enjoy your outdoor spaces.
+        </p>
+        <p class="text-brand-dark-light">
+          We work with species like Western Red Cedar and Eastern White Cedar that offer natural weather resistance, or Douglas Fir and White Oak for maximum strength and beauty with a protective finish.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+    <div class="container-max">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl text-white mb-4">Extend Your Living Space</h2>
+        <p class="text-white/85 text-lg mb-8">
+          Imagine entertaining under the beauty of hand-crafted timber. Let's design the perfect outdoor structure for your property.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class="btn btn-primary bg-white text-brand-accent hover:bg-gray-100 border-white btn-lg">Get a Free Consultation</a>
+          <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-outline border-white text-white hover:bg-white/10 btn-lg">Call {siteConfig.contact.phone.formatted}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

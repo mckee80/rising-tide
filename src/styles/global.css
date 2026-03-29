@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+/* ============================================================
+   BRAND THEME — Rising Tide Timber Frames
+   Warm, natural palette inspired by wood, earth, and craftsmanship
+   ============================================================ */
+@theme {
+  /* Primary — warm timber gold */
+  --color-brand-primary: #8B6914;
+  --color-brand-primary-dark: #6B5010;
+  --color-brand-primary-light: #B8942E;
+
+  /* Accent — forest green (nature, sustainability) */
+  --color-brand-accent: #2C4A3E;
+  --color-brand-accent-dark: #1E3329;
+  --color-brand-accent-light: #3D6B5A;
+
+  /* Text / Dark — charcoal (timber-inspired) */
+  --color-brand-dark: #1C1C1C;
+  --color-brand-dark-light: #4A4A4A;
+
+  /* Surfaces — warm natural tones */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F5F0E8;
+  --color-surface-warm: #FDFAF5;
+
+  /* Fonts — Playfair Display for headings (traditional elegance), Source Sans for body */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply text-brand-dark bg-surface-warm font-sans;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-normal text-brand-dark;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-primary;
+    outline-style: solid;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-7 py-3 font-sans text-sm font-semibold uppercase tracking-wider border-2 border-transparent rounded-sm transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-brand-primary text-white border-brand-primary hover:bg-brand-primary-dark hover:border-brand-primary-dark hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-brand-dark border-brand-dark hover:bg-brand-dark hover:text-white;
+  }
+
+  .btn-accent {
+    @apply bg-brand-accent text-white border-brand-accent hover:bg-brand-accent-dark hover:border-brand-accent-dark hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-lg {
+    @apply px-9 py-4 text-base;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24 px-4 md:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto px-4 md:px-8;
+  }
+
+  .section-label {
+    @apply inline-block text-xs font-semibold uppercase tracking-widest text-brand-primary mb-2;
+  }
+
+  .section-title {
+    @apply mb-4;
+  }
+
+  .section-description {
+    @apply text-lg text-brand-dark-light;
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+@layer utilities {
+  .sr-only-focusable:focus {
+    @apply not-sr-only;
+  }
+}
+
+/* ============================================================
+   SERVICE CARDS
+   ============================================================ */
+.service-card {
+  @apply bg-white p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-surface-alt;
+}
+
+.service-card h3 {
+  @apply text-xl mb-2;
+}
+
+.service-card p {
+  @apply text-brand-dark-light text-base mb-0;
+}
+
+.service-icon {
+  @apply w-12 h-12 mb-4 text-brand-primary;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero-gradient {
+  background: linear-gradient(135deg, #F5F0E8 0%, #FDFAF5 50%, #EDE5D8 100%);
+}
+
+/* ============================================================
+   TRUST BAR
+   ============================================================ */
+.trust-bar {
+  @apply py-6 bg-surface-alt border-y border-brand-primary/10;
+}
+
+.trust-item {
+  @apply flex items-center gap-2 text-sm text-brand-dark font-medium;
+}
+
+.trust-icon {
+  @apply text-brand-primary font-bold;
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.cta-section {
+  @apply text-center p-8 lg:p-12 bg-gradient-to-br from-brand-accent to-brand-accent-dark rounded-xl;
+}
+
+.cta-section h3 {
+  @apply text-white mb-2;
+}
+
+.cta-section p {
+  @apply text-white/85 mb-6;
+}
+
+/* ============================================================
+   TESTIMONIAL CARDS
+   ============================================================ */
+.testimonial-card {
+  @apply bg-white/10 backdrop-blur-sm p-8 rounded-xl;
+}
+
+.testimonial-card blockquote p {
+  @apply text-white/95 text-base leading-relaxed mb-4;
+}
+
+.testimonial-card cite {
+  @apply text-white/70 text-sm not-italic;
+}
+
+/* ============================================================
+   PHILOSOPHY BOX
+   ============================================================ */
+.philosophy-box {
+  @apply bg-brand-primary/5 border-l-4 border-brand-primary rounded-r-xl p-6;
+}
+
+.philosophy-box h3 {
+  @apply text-xl font-heading font-semibold text-brand-dark mb-3;
+}
+
+.philosophy-box p {
+  @apply text-brand-dark-light mb-3 last:mb-0;
+}
+
+/* ============================================================
+   ABOUT GRID
+   ============================================================ */
+.about-grid {
+  @apply grid lg:grid-cols-2 gap-12 items-start;
+}
+
+/* ============================================================
+   CREDENTIAL / STAT BOXES
+   ============================================================ */
+.credential {
+  @apply text-center;
+}
+
+.credential strong {
+  @apply block text-brand-primary text-lg;
+}
+
+.credential span {
+  @apply text-brand-dark-light text-xs;
+}
+
+/* ============================================================
+   RESOURCE CARDS
+   ============================================================ */
+.resource-card {
+  @apply bg-white rounded-xl p-6 shadow-sm text-center border border-surface-alt;
+}
+
+.resource-card.highlight {
+  @apply bg-brand-accent text-white border-brand-accent;
+}
+
+.resource-card.highlight h3 {
+  @apply text-white;
+}
+
+.resource-card.highlight p {
+  @apply text-white/85;
+}
+
+.resource-number {
+  @apply text-3xl font-heading font-bold text-brand-primary;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-item {
+  @apply border-b border-surface-alt;
+}
+
+.faq-item summary {
+  @apply flex justify-between items-center py-6 cursor-pointer font-heading text-lg text-brand-dark list-none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  @apply text-2xl font-light text-brand-primary transition-transform;
+}
+
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+
+.faq-item p {
+  @apply pb-6 text-brand-dark-light;
+}
+
+/* ============================================================
+   PROCESS STEPS
+   ============================================================ */
+.process-step {
+  @apply relative pl-16 pb-12;
+}
+
+.process-step::before {
+  content: '';
+  @apply absolute left-5 top-12 w-0.5 h-full bg-brand-primary/20;
+}
+
+.process-step:last-child::before {
+  display: none;
+}
+
+.process-number {
+  @apply absolute left-0 top-0 w-10 h-10 bg-brand-primary text-white rounded-full flex items-center justify-center font-heading text-lg font-bold;
+}
+
+/* ============================================================
+   WOOD SPECIES TAGS
+   ============================================================ */
+.wood-tag {
+  @apply inline-block bg-brand-primary/10 text-brand-primary-dark px-4 py-2 rounded-full text-sm font-medium;
+}
+
+/* ============================================================
+   PORTFOLIO GRID
+   ============================================================ */
+.portfolio-card {
+  @apply relative overflow-hidden rounded-xl cursor-pointer;
+}
+
+.portfolio-card .overlay {
+  @apply absolute inset-0 bg-brand-dark/60 opacity-0 transition-opacity duration-300 flex items-end p-6;
+}
+
+.portfolio-card:hover .overlay {
+  @apply opacity-100;
+}
+
+.portfolio-card .overlay h3 {
+  @apply text-white text-lg translate-y-4 transition-transform duration-300;
+}
+
+.portfolio-card:hover .overlay h3 {
+  @apply translate-y-0;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}

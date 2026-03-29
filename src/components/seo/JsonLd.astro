@@ -1,0 +1,138 @@
+---
+import { siteConfig } from '@/config/site';
+
+interface Props {
+  data?: object;
+}
+
+const { data } = Astro.props;
+
+// Default HomeAndConstructionBusiness + LocalBusiness schema
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      alternateName: siteConfig.shortName,
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/images/logo.svg`,
+      },
+      description: siteConfig.description,
+      telephone: `+1-${siteConfig.contact.phone.primary}`,
+      email: siteConfig.contact.email,
+      priceRange: '$$$',
+      knowsAbout: [
+        'Timber Frame Construction',
+        'Heavy Timber Construction',
+        'Hand-Cut Joinery',
+        'Mortise and Tenon Joinery',
+        'Post and Beam Construction',
+        'Timber Frame Homes',
+        'Timber Frame Barns',
+        'Timber Frame Pavilions',
+        'Structural Insulated Panels',
+        'Custom Roof Trusses',
+        'Timber Frame Restoration',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: siteConfig.contact.address.city,
+        addressRegion: siteConfig.contact.address.state,
+        postalCode: siteConfig.contact.address.zip,
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: siteConfig.contact.geo.lat,
+        longitude: siteConfig.contact.geo.lng,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '07:00',
+          closes: '17:00',
+        },
+      ],
+      areaServed: siteConfig.serviceAreas.map((area) => ({
+        '@type': 'City',
+        name: area,
+        containedInPlace: {
+          '@type': 'State',
+          name: 'Pennsylvania',
+        },
+      })),
+      ...(siteConfig.googleReviews.reviewCount > 0 && {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: siteConfig.googleReviews.rating,
+          reviewCount: siteConfig.googleReviews.reviewCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      }),
+      sameAs: Object.values(siteConfig.social).filter(Boolean),
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Timber Frame Services',
+        itemListElement: siteConfig.services.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service.name,
+            description: service.description,
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.tagline,
+      publisher: { '@id': `${siteConfig.url}/#organization` },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteConfig.url}/#faq`,
+      mainEntity: siteConfig.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    },
+    // Testimonials as Reviews
+    ...siteConfig.testimonials.map((testimonial, index) => ({
+      '@type': 'Review',
+      '@id': `${siteConfig.url}/#review-${index + 1}`,
+      itemReviewed: {
+        '@id': `${siteConfig.url}/#organization`,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: testimonial.quote,
+      author: {
+        '@type': 'Person',
+        name: testimonial.author,
+      },
+    })),
+  ],
+};
+
+const jsonLd = data || defaultSchema;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+
+const trussTypes = [
+  {
+    name: 'King Post Truss',
+    description: 'The classic timber frame truss featuring a central vertical post. Clean, simple, and timeless — ideal for both traditional and contemporary spaces.',
+  },
+  {
+    name: 'Queen Post Truss',
+    description: 'Two vertical posts create a wider span with an elegant horizontal tie beam. Perfect for larger rooms and great rooms.',
+  },
+  {
+    name: 'Hammer Beam Truss',
+    description: 'The most dramatic and ornate truss style, projecting from the wall to create soaring, cathedral-like spaces. A true architectural statement.',
+  },
+  {
+    name: 'Scissor Truss',
+    description: 'Crossed bottom chords create a distinctive X-pattern and vaulted ceiling. Adds height and visual interest to any room.',
+  },
+  {
+    name: 'Curved & Arched Trusses',
+    description: 'Custom curved timbers and arched designs that add organic, flowing lines to your structure. Requires master-level craftsmanship.',
+  },
+  {
+    name: 'Custom Designs',
+    description: 'Have a unique vision? We design and fabricate custom truss configurations to match any architectural style or structural requirement.',
+  },
+];
+---
+
+<BaseLayout
+  title="Custom Roof Trusses"
+  description="Hand-cut timber frame roof trusses — king post, queen post, hammer beam, scissor, and custom designs. Rising Tide Timber Frames creates stunning structural focal points."
+  breadcrumbs={[{ name: 'Services', url: '/services/' }, { name: 'Roof Trusses', url: '/services/roof-trusses/' }]}
+>
+  <!-- Hero -->
+  <section class="pt-36 pb-16 bg-gradient-to-br from-brand-primary/10 to-transparent">
+    <div class="container-max">
+      <div class="max-w-3xl">
+        <span class="section-label">Trusses</span>
+        <h1 class="text-4xl md:text-5xl mb-6">Custom Roof Trusses</h1>
+        <p class="text-lg text-brand-dark-light mb-8">
+          Striking king post, queen post, hammer beam, and scissor trusses that serve as both structural support and breathtaking architectural focal points. Every truss is hand-cut with precision joinery.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact/" class="btn btn-primary btn-lg">Discuss Your Truss Project</a>
+          <a href="/portfolio/" class="btn btn-outline btn-lg">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Truss Types -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Truss Styles</span>
+        <h2 class="section-title">Types of Timber Trusses</h2>
+        <p class="text-brand-dark-light">
+          Each truss style offers a unique combination of structural performance and aesthetic beauty. We help you choose the right design for your space.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {trussTypes.map((truss) => (
+          <div class="service-card">
+            <h3>{truss.name}</h3>
+            <p>{truss.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Note -->
+  <section class="section-padding bg-surface-alt">
+    <div class="container-max">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label">Versatility</span>
+        <h2 class="section-title">Trusses for Any Structure</h2>
+        <p class="text-brand-dark-light mb-6">
+          Timber trusses aren't just for timber frame homes. They can be integrated into conventional stick-built homes, commercial spaces, churches, restaurants, and more. A set of hand-crafted trusses can transform an ordinary room into an extraordinary space.
+        </p>
+        <p class="text-brand-dark-light">
+          We work with your architect, builder, or general contractor to design trusses that meet structural requirements while creating the visual impact you desire. Engineering, shop drawings, and installation coordination are all part of our service.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+    <div class="container-max">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl text-white mb-4">Add a Timber Truss to Your Project</h2>
+        <p class="text-white/85 text-lg mb-8">
+          Whether it's a single decorative truss or a full roof system, let's discuss how hand-crafted timber trusses can elevate your space.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class="btn btn-primary bg-white text-brand-accent hover:bg-gray-100 border-white btn-lg">Get a Free Consultation</a>
+          <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-outline border-white text-white hover:bg-white/10 btn-lg">Call {siteConfig.contact.phone.formatted}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

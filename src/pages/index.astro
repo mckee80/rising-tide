@@ -1,0 +1,377 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="relative min-h-[80vh] flex items-center pt-36 pb-20 overflow-hidden" id="hero">
+    <div class="absolute inset-0 hero-gradient opacity-50 -z-10"></div>
+    <!-- Decorative timber frame silhouette -->
+    <div class="absolute right-0 top-0 bottom-0 w-1/2 opacity-[0.03] -z-10 hidden lg:block">
+      <svg viewBox="0 0 400 600" fill="currentColor" class="w-full h-full text-brand-dark">
+        <rect x="50" y="50" width="30" height="500" />
+        <rect x="320" y="50" width="30" height="500" />
+        <rect x="50" y="50" width="300" height="30" />
+        <rect x="50" y="250" width="300" height="20" />
+        <rect x="160" y="50" width="80" height="200" transform="rotate(45 200 150)" />
+        <rect x="160" y="50" width="80" height="200" transform="rotate(-45 200 150)" />
+      </svg>
+    </div>
+    <div class="container-max">
+      <p class="text-sm uppercase tracking-widest text-brand-primary font-semibold mb-4">
+        West Reading, PA &middot; Serving Pennsylvania & the Mid-Atlantic
+      </p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+        Crafting Heirloom<br />
+        <span class="text-brand-primary">Timber Frame Structures</span>
+      </h1>
+      <p class="text-lg md:text-xl text-brand-dark-light mb-8 max-w-2xl">
+        We specialize in the art of heavy timber construction — marrying traditional hand-cut joinery with modern tools to design, fabricate, and install exquisite timber frame homes, barns, pavilions, and more.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/contact/" class="btn btn-primary btn-lg">
+          Start Your Project
+        </a>
+        <a href="/portfolio/" class="btn btn-outline btn-lg">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="container-max">
+      <div class="flex justify-center flex-wrap gap-8 lg:gap-16">
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Hand-Cut Joinery</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Traditional Craftsmanship</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Custom Design & Engineering</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Premium Wood Species</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Intro -->
+  <section class="section-padding" id="about">
+    <div class="container-max">
+      <div class="about-grid">
+        <div>
+          <div class="w-full aspect-[4/3] rounded-xl shadow-xl bg-surface-alt flex items-center justify-center overflow-hidden">
+            <div class="text-center p-8">
+              <svg class="w-16 h-16 text-brand-primary/30 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <p class="text-brand-dark-light text-sm">Timber frame craftsmanship photo</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">The Art of Timber Framing</span>
+          <h2 class="section-title">Where Traditional Craft Meets Modern Precision</h2>
+          <p class="text-brand-dark-light mb-6">
+            At Rising Tide Timber Frames, every structure begins with a passion for the timeless art of heavy timber construction. We blend centuries-old carpentry techniques with modern tools to meticulously hand-cut every component, ensuring each piece fits together with seamless precision.
+          </p>
+          <p class="text-brand-dark-light mb-6">
+            From the first design consultation to the final peg driven home during your frame raising, we are dedicated to creating structures that will stand for generations — true heirlooms in wood and craftsmanship.
+          </p>
+          <div class="philosophy-box">
+            <h3>Our Philosophy</h3>
+            <p>Every timber tells a story. We select, shape, and join each one with the care and respect that centuries of tradition demand — because the structures we build today become the heritage of tomorrow.</p>
+          </div>
+          <a
+            href="/about/"
+            class="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary-dark transition-colors font-medium mt-4"
+          >
+            Learn more about our craft
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section-padding bg-surface-alt" id="services">
+    <div class="container-max">
+      <div class="text-center mb-16 max-w-2xl mx-auto">
+        <span class="section-label">What We Build</span>
+        <h2 class="section-title">Timber Frame Structures & Services</h2>
+        <p class="text-brand-dark-light">
+          From complete custom homes to stunning accent features, we design, fabricate, and install timber frame structures of every scale.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {siteConfig.services.map((service) => (
+          <div class="service-card">
+            <div class="service-icon">
+              {service.icon === 'home' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              )}
+              {service.icon === 'truss' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M2 20h20"/>
+                  <path d="M12 4l10 16"/>
+                  <path d="M12 4L2 20"/>
+                  <path d="M7 12h10"/>
+                  <path d="M12 4v8"/>
+                </svg>
+              )}
+              {service.icon === 'barn' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 21V11l9-8 9 8v10"/>
+                  <path d="M3 21h18"/>
+                  <rect x="7" y="14" width="4" height="7"/>
+                  <rect x="13" y="14" width="4" height="4"/>
+                  <path d="M12 3v5"/>
+                </svg>
+              )}
+              {service.icon === 'pavilion' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 8h16"/>
+                  <path d="M2 8l10-5 10 5"/>
+                  <path d="M5 8v13"/>
+                  <path d="M19 8v13"/>
+                  <path d="M5 21h14"/>
+                </svg>
+              )}
+              {service.icon === 'pool' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M2 12h20"/>
+                  <path d="M2 8h4l2-4h8l2 4h4"/>
+                  <path d="M6 12v6"/>
+                  <path d="M18 12v6"/>
+                  <path d="M2 18c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/>
+                </svg>
+              )}
+              {service.icon === 'entry' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 21V8l4-4h10l4 4v13"/>
+                  <rect x="8" y="11" width="8" height="10"/>
+                  <path d="M12 11v10"/>
+                  <circle cx="10.5" cy="16" r="0.5" fill="currentColor"/>
+                  <circle cx="13.5" cy="16" r="0.5" fill="currentColor"/>
+                </svg>
+              )}
+              {service.icon === 'design' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              )}
+              {service.icon === 'restore' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21.5 2v6h-6"/>
+                  <path d="M21.34 15.57a10 10 0 1 1-.57-8.38L21.5 8"/>
+                </svg>
+              )}
+            </div>
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+            {service.href && (
+              <a
+                href={service.href}
+                class="inline-flex items-center gap-1 text-brand-primary hover:text-brand-primary-dark transition-colors font-medium text-sm mt-3"
+              >
+                Learn more
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Why Rising Tide</span>
+        <h2 class="section-title">What Sets Our Timber Frames Apart</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="resource-card">
+          <div class="resource-number">
+            <svg class="w-8 h-8 text-brand-primary mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 mb-2 text-lg">Hand-Cut Joinery</h3>
+          <p class="text-brand-dark-light text-base">
+            Every mortise, tenon, and peg is hand-crafted — no mass production, no shortcuts.
+          </p>
+        </div>
+        <div class="resource-card">
+          <div class="resource-number">
+            <svg class="w-8 h-8 text-brand-primary mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 mb-2 text-lg">Built to Last Centuries</h3>
+          <p class="text-brand-dark-light text-base">
+            Timber frames are among the most durable structures ever built. Your frame becomes a legacy.
+          </p>
+        </div>
+        <div class="resource-card">
+          <div class="resource-number">
+            <svg class="w-8 h-8 text-brand-primary mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 mb-2 text-lg">Sustainable Building</h3>
+          <p class="text-brand-dark-light text-base">
+            Timber framing uses up to 30% less wood than conventional construction. Wood is renewable and carbon-storing.
+          </p>
+        </div>
+        <div class="resource-card highlight">
+          <h3 class="mb-2 text-lg">Full-Service Approach</h3>
+          <p class="text-base">
+            From initial concept through design, engineering, fabrication, and frame raising — we guide you every step of the way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-padding bg-surface-alt" id="process">
+    <div class="container-max">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-label">Our Process</span>
+          <h2 class="section-title">From Vision to Frame Raising</h2>
+          <p class="text-brand-dark-light mb-10">
+            Every Rising Tide project follows a proven process that ensures your vision is realized with precision, quality, and care.
+          </p>
+          <div>
+            {siteConfig.process.map((step) => (
+              <div class="process-step">
+                <div class="process-number">{step.step}</div>
+                <h3 class="text-xl mb-2">{step.title}</h3>
+                <p class="text-brand-dark-light">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-surface-warm rounded-xl p-8 shadow-lg border border-brand-primary/10">
+          <h3 class="text-2xl mb-6">Wood Species We Work With</h3>
+          <p class="text-brand-dark-light mb-6">
+            We carefully select each timber for its strength, beauty, and character. Our craftsmen work with a diverse range of premium species.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            {siteConfig.woodSpecies.map((species) => (
+              <span class="wood-tag">{species}</span>
+            ))}
+          </div>
+          <div class="mt-8 pt-6 border-t border-surface-alt">
+            <p class="text-brand-dark-light text-sm">
+              Not sure which species is right for your project? We'll help you choose based on structural requirements, aesthetics, and budget during the design phase.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  {siteConfig.testimonials.length > 0 && (
+    <section class="py-16 md:py-20 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+      <div class="container-max">
+        <div class="text-center mb-12">
+          <span class="section-label text-white/80">Client Stories</span>
+          <h2 class="section-title text-white">What Our Clients Say</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {siteConfig.testimonials.map((testimonial) => (
+            <div class="testimonial-card">
+              <blockquote>
+                <p>"{testimonial.quote}"</p>
+              </blockquote>
+              <cite>- {testimonial.author}</cite>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Service Areas -->
+  <section class="section-padding bg-surface-alt">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Where We Work</span>
+        <h2 class="section-title">Areas We Serve</h2>
+        <p class="text-brand-dark-light">
+          Based in West Reading, Pennsylvania, we serve clients throughout the region and take select projects across the Mid-Atlantic and Northeast.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        {siteConfig.serviceAreas.map((area) => (
+          <div class="bg-white rounded-lg px-4 py-3 text-center shadow-sm">
+            <span class="text-brand-dark font-medium">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding" id="faq">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        {siteConfig.faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+    <div class="container-max">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl text-white mb-4">Ready to Build Your Heirloom?</h2>
+        <p class="text-white/85 text-lg mb-8">
+          Whether you have detailed plans or just an idea, we'd love to hear about your project. Let's start with a conversation.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class="btn btn-primary bg-white text-brand-accent hover:bg-gray-100 border-white btn-lg">
+            Start Your Project
+          </a>
+          <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-outline border-white text-white hover:bg-white/10 btn-lg">
+            Call {siteConfig.contact.phone.formatted}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

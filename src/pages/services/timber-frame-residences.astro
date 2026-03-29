@@ -1,0 +1,139 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+
+const features = [
+  {
+    title: 'Open Floor Plans',
+    description: 'Timber frames require no interior load-bearing walls, allowing for expansive, flexible living spaces that conventional framing simply cannot achieve.',
+  },
+  {
+    title: 'Exposed Beam Beauty',
+    description: 'The structural skeleton of your home becomes its most stunning design feature — warm, natural wood timbers that create an atmosphere of warmth and permanence.',
+  },
+  {
+    title: 'Energy Efficiency',
+    description: 'Paired with Structural Insulated Panels (SIPs), timber frame homes are among the most energy-efficient building styles, with minimal thermal bridging.',
+  },
+  {
+    title: 'Design Flexibility',
+    description: 'From rustic mountain retreats to contemporary open-concept designs, timber framing adapts to virtually any architectural style and vision.',
+  },
+  {
+    title: 'Lasting Value',
+    description: 'Timber frame homes appraise at higher market values and stand for centuries. Your home becomes a true heirloom, passed down through generations.',
+  },
+  {
+    title: 'Customization',
+    description: 'Every timber, every joint, every detail is customized to your project. Choose your wood species, truss styles, and finish to create something uniquely yours.',
+  },
+];
+
+const faq = [
+  {
+    question: 'How much does a timber frame home cost?',
+    answer: 'The timber frame itself typically ranges from $40-$80+ per square foot depending on complexity, wood species, and design. This covers design, engineering, fabrication, and frame raising. Total home construction costs (including enclosure, finishes, etc.) vary based on your builder and specifications. We provide detailed estimates during the design phase.',
+  },
+  {
+    question: 'Can a timber frame home have a modern look?',
+    answer: 'Absolutely! While timber framing has deep historical roots, the method is incredibly versatile. Many of our clients choose clean-lined, contemporary designs with large glass walls, minimalist timber detailing, and open living spaces. The natural beauty of exposed timber complements virtually any design aesthetic.',
+  },
+  {
+    question: 'How energy efficient are timber frame homes?',
+    answer: 'Extremely efficient when paired with SIPs (Structural Insulated Panels). This combination eliminates thermal bridging common in stick-built homes and can be nearly twice as energy-efficient. Many timber frame homeowners report significantly lower heating and cooling costs compared to conventional construction.',
+  },
+  {
+    question: 'Do I need a separate general contractor?',
+    answer: 'Yes — we specialize in the timber frame itself (design, fabrication, and raising). You will need a general contractor to handle the enclosure, utilities, finishes, and other trades. We work closely with your GC and can recommend builders experienced with timber frame construction.',
+  },
+];
+---
+
+<BaseLayout
+  title="Custom Timber Frame Homes"
+  description="Custom timber frame homes featuring hand-cut joinery, open floor plans, and exposed beam beauty. Rising Tide Timber Frames designs, fabricates, and installs heirloom residences in Pennsylvania."
+  breadcrumbs={[{ name: 'Services', url: '/services/' }, { name: 'Timber Frame Residences', url: '/services/timber-frame-residences/' }]}
+>
+  <!-- Hero -->
+  <section class="pt-36 pb-16 bg-gradient-to-br from-brand-primary/10 to-transparent">
+    <div class="container-max">
+      <div class="max-w-3xl">
+        <span class="section-label">Residential</span>
+        <h1 class="text-4xl md:text-5xl mb-6">Custom Timber Frame Homes</h1>
+        <p class="text-lg text-brand-dark-light mb-8">
+          Complete custom timber frame homes that combine the warmth and beauty of exposed heavy timbers with modern energy efficiency. From cozy cabins to grand estates, every frame is hand-crafted to your vision.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact/" class="btn btn-primary btn-lg">Start Your Home Project</a>
+          <a href="/portfolio/" class="btn btn-outline btn-lg">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xl text-brand-dark-light leading-relaxed mb-6">
+          A timber frame home is more than a house — it's a legacy. The exposed structural timbers create a living space of extraordinary warmth, beauty, and character that simply cannot be replicated with conventional construction.
+        </p>
+        <p class="text-brand-dark-light leading-relaxed">
+          At Rising Tide, we collaborate with you from the earliest design stages through the thrilling moment of frame raising. Whether you come to us with detailed architectural plans or a rough sketch on a napkin, our team transforms your vision into a custom timber frame that will stand for centuries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-padding bg-surface-alt">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Why Timber Frame</span>
+        <h2 class="section-title">Advantages of a Timber Frame Home</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="bg-white rounded-xl p-6 border border-surface-alt">
+            <h3 class="text-lg mb-2">{feature.title}</h3>
+            <p class="text-brand-dark-light text-sm">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Questions</span>
+        <h2 class="section-title">Timber Frame Home FAQ</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+    <div class="container-max">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl text-white mb-4">Ready to Build Your Dream Home?</h2>
+        <p class="text-white/85 text-lg mb-8">
+          Let's start with a conversation about your vision. We'll discuss design, wood species, timeline, and budget to help you take the first step.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class="btn btn-primary bg-white text-brand-accent hover:bg-gray-100 border-white btn-lg">Get a Free Consultation</a>
+          <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-outline border-white text-white hover:bg-white/10 btn-lg">Call {siteConfig.contact.phone.formatted}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

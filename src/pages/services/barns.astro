@@ -1,0 +1,96 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+
+const barnTypes = [
+  {
+    title: 'Working Farm Barns',
+    description: 'Functional timber frame barns designed for agricultural use — built to withstand the demands of daily farm life while honoring the building traditions of rural Pennsylvania.',
+  },
+  {
+    title: 'Event Venue Barns',
+    description: 'Stunning timber frame barns designed for weddings, receptions, and gatherings. Open floor plans, dramatic truss work, and rustic elegance create an unforgettable venue.',
+  },
+  {
+    title: 'Workshop & Studio Barns',
+    description: 'Personal retreats for woodworking, art, or any creative pursuit. The beauty and durability of a timber frame barn provides an inspiring and practical workspace.',
+  },
+  {
+    title: 'Horse Barns & Equestrian',
+    description: 'Timber frame horse barns that provide superior ventilation, durability, and aesthetic beauty. Designed for the comfort of both horses and their owners.',
+  },
+];
+---
+
+<BaseLayout
+  title="Timber Frame Barns"
+  description="Traditional timber frame barns for farms, event venues, workshops, and equestrian use. Rising Tide Timber Frames builds barns that honor the craft and last for generations."
+  breadcrumbs={[{ name: 'Services', url: '/services/' }, { name: 'Barns', url: '/services/barns/' }]}
+>
+  <!-- Hero -->
+  <section class="pt-36 pb-16 bg-gradient-to-br from-brand-primary/10 to-transparent">
+    <div class="container-max">
+      <div class="max-w-3xl">
+        <span class="section-label">Barns</span>
+        <h1 class="text-4xl md:text-5xl mb-6">Timber Frame Barns</h1>
+        <p class="text-lg text-brand-dark-light mb-8">
+          Traditional timber frame barns built to last generations. Whether for working farms, event venues, or personal retreats, our barns honor the craft while meeting modern needs.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact/" class="btn btn-primary btn-lg">Discuss Your Barn Project</a>
+          <a href="/portfolio/" class="btn btn-outline btn-lg">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Barn Types -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <span class="section-label">Applications</span>
+        <h2 class="section-title">Barns for Every Purpose</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {barnTypes.map((barn) => (
+          <div class="service-card">
+            <h3>{barn.title}</h3>
+            <p>{barn.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Heritage -->
+  <section class="section-padding bg-surface-alt">
+    <div class="container-max">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label">Heritage</span>
+        <h2 class="section-title">Honoring a Pennsylvania Tradition</h2>
+        <p class="text-brand-dark-light mb-6">
+          Pennsylvania has one of the richest barn-building traditions in America. Our timber frame barns draw on this heritage while incorporating modern engineering and materials. The result is a structure that respects the past while serving the future.
+        </p>
+        <p class="text-brand-dark-light">
+          We work with a variety of wood species including Douglas Fir, White Oak, and reclaimed timbers salvaged from historic structures — giving your new barn a connection to history.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-accent to-brand-accent-dark">
+    <div class="container-max">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl text-white mb-4">Build a Barn That Lasts</h2>
+        <p class="text-white/85 text-lg mb-8">
+          From working farms to elegant event spaces, let's design and build a timber frame barn that serves your needs and stands the test of time.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class="btn btn-primary bg-white text-brand-accent hover:bg-gray-100 border-white btn-lg">Get a Free Consultation</a>
+          <a href={`tel:${siteConfig.contact.phone.primary}`} class="btn btn-outline border-white text-white hover:bg-white/10 btn-lg">Call {siteConfig.contact.phone.formatted}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
